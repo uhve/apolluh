@@ -118,6 +118,10 @@
                         :: Updated on <time>{{ page.updated | date(format="%Y-%m-%d") }}</time>
                     {% endif %}
 
+                    {% if page.extra.word_count %}
+                        :: <time>{{ page.word_count }}</time> Words
+                    {% endif %}
+                    
                     {% if page.extra.read_time %}
                         :: <time>{{ page.reading_time }}</time> Min Read
                     {% endif %}
@@ -164,7 +168,8 @@
         {% endif %}
 
         {# Optional table of contents #}
-        {% if config.extra.toc | default(value=false) %}
+        {% if config.extra.toc | default(value=true) %}
+        {% if page.extra.toc | default(value=true) %}
         {% if page.toc %}
             <div class="toc-container">
                 <h1 class="toc-title">Table of Contents</h1>
@@ -195,6 +200,7 @@
                     {% endfor %}
                 </ul>
             </div>
+        {% endif %}
         {% endif %}
         {% endif %}
 
