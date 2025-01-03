@@ -105,7 +105,7 @@
     {% endif %}
 
     {# Table of contents #}
-    {% if config.extra.toc | default(value=false) %}
+    {% if config.extra.toc | default(value=true) %}
         <script src={{ get_url(path="js/toc.js") }}></script>
     {% endif %}
 
